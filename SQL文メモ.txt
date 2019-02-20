@@ -1,0 +1,35 @@
+SQL文は基本的にはCRUDをするもの
+
+
+Create（データを生成する）
+INSERT文
+
+INSERT INTO データを生成したいテーブル名 (カラム名1,カラム名2,...)VALUES(カラム名1に指定したい値,カラム名2に指定したい値,...);
+INSERT INTO `survey` (`code`, `nickname`, `email`, `content`) VALUES (NULL, 'togamin', 'togamin@blog.com', 'test');
+
+READ（データを読み込む）
+SELECT文
+
+SELECT 読み込みたい列名 FROM 読み込みたいテーブル名 (WHERE 読み込みたいデータの条件)
+*:テーブルが持ってる列全部
+SELECT * FROM `survey`
+SELECT `nickname`, `email` FROM `survey`
+
+UPDATE（元々あるデータを変更する）
+UPDATE文
+
+UPDATE 更新したいデータが存在してるテーブル名 SET 更新したいカラム名1 = 更新したいカラム名1に指定したい値(,更新したいカラム名2 = 更新したいカラム名2に指定したい値...) (WHERE 更新したいデータの取得条件)
+UPDATE `survey` SET `content` = 'testogamin' WHERE `survey`.`code` = 3;
+
+DELETE (元々あるデータを削除する)
+DELETE文
+
+DELETE FROM 削除したいデータが存在するテーブル名 (WHERE 削除したいデータの取得条件)
+DELETE FROM `survey` WHERE `survey`.`code` = 2;
+
+
+INSERT INTO `survey`(`code`, `nickname`, `email`, `content`) VALUES (null,'おなまえ','test@gmail.com','aaaa');
+
+タプル処理（カンマで区切った順番に合わせて指定することで配置できる書き方）
+INSERT INTO `survey`( `nickname`, `email`, `content`) VALUES ('おなまえ','test@gmail.com','aaaa');
+
